@@ -1,0 +1,63 @@
+html,head,body
+{
+	color:white;
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+}
+
+.blue 
+{
+	background-color:#268bd2;
+}
+.red
+{
+	background-color:#dc322f;
+}
+.yellow 
+{
+	background-color:#b58900;
+}
+
+.green 
+{
+	background-color:#859900;
+}
+
+.violet 
+{
+	background-color:#6c71c4;
+}
+
+.magneta 
+{
+	background-color:#d33682;
+}
+
+.cyan 
+{
+	background-color:#2aa198;
+}
+
+section
+{
+	display:block;
+	height:40%;
+	//border:1px solid black;
+	padding:5px;
+}
+
+footer
+{
+	display:block;
+	background-color:gray;
+	padding:5px;
+}
+
+h1
+{
+	color:black;
+	font-size:2em;
+	text-align:center;
+}
