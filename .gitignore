@@ -1,2 +1,5 @@
 *.sw*
 
+css/normalize.min.css
+css/milligram.min.css
+
