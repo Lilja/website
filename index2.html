@@ -2,66 +2,62 @@
 <html lang="en">
 <head>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>Your page title here :)</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.min.css">
   <link rel="stylesheet" href="css/milligram.min.css">
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.3.0/vue-router.js"></script>
 	<!-- Own styles -->
 
 	<link rel="stylesheet" href="css/main2.css">
 
+
 </head>
 <body>
+	<div class="vue-wrapper" id="vue-wrapper">
 	<header>
-		<nav class="navigation">
+		<nav class="navigation" id="app">
 			<div class="container">
 				<ul class="row main-navigation" role="navigation">
-					<li class="column column-20"><img class="logo" src="images/logo.png" /></li>
-					<li class="column"><a href="#">Home</a></li>
-					<li class="column"><a href="#">About</a></li>
-					<li class="column"><a href="#">Contact</a></li>
-					<li class="column"><a href="#">Work</a></li>
-					<li class="column"><a href="#">Skills</a></li>
-					<li class="column"><a href="#">Blog</a></li>
+					<li class="column special"><img class="logo" src="images/logo.png" /></li>
+					<li class="column"><router-link to="/home">Home</router-link></li>
+					<li class="column"><router-link to="/about">About</router-link></li>
+					<li class="column"><router-link to="/work">Work</router-link></li>
+					<li class="column"><router-link to="/blog">Blog</router-link></li>
 				</ul>
 			</div>
+			<!--
+			<div class="container">
+				<label for="toggle-menu-button" id="mobile-menu-button">Menu <i class="fa fa-arrow-circle-down"></i></label>
+				<input type="checkbox" id="toggle-menu-button" style="position:absolute;top:-9999px;left:-9999px">
+				<ul class="mobile-navigation">
+					<li><i class="fa fa-home"></i> Home</li>
+					<li><i class="fa fa-user"></i> About</li>
+					<li><i class="fa fa-building"></i> Work</li>
+					<li><i class="fa fa-book"></i> Blog</li>
+				</ul>
+			</div>
+			-->
 		</nav>
 	</header>
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- Primary Page Layout -->
   <main role="main" class="container">
 		<div class="row">
-			<div class="column column-50">
-				<div ></div>
-				<span>hehe</span>
-			</div>
-			<div class="column column-50">
-				<div></div>
-				<h1>Hello world</h1>
-
-				<div>Back-end | memer | lover | father</div>
-				<p>Lorem ipsum oaskdjfölsakd jfölaskdjfsaöldkjfaöl skjfösalkdjfkjsdfl föalskjdfölkasjd faslkdjfals dfsa fd safd sa dfas fd sad fas fd as df safd wf ewq efkqwj efqw ef qw ef qw ef qwe f qwef q wef qw ef wq ef wqef qwkefjqw kefj</p>
+			<div class="column">
+				<router-view></router-view>
 			</div>
 		</div>
   </main>
@@ -80,7 +76,7 @@
 					<ul class="row footer-navigation">
 						<li class="column"><a href="#">Home</li>
 						<li class="column"><a href="#">About</a></li>
-						<li class="column"><a href="#">Contact</a></li>
+						<li class="column"><a href="#">Work</a></li>
 					</ul>
 				</div>
 				<!-- One more for spacing -->
@@ -100,8 +96,56 @@
 		</div>
 
 	</footer>
-
+</div> <!-- end vue wrapper -->
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script>
+
+	Vue.use(VueRouter)
+
+	const home = Vue.extend({
+		template: "<span>Home</span>"
+	})
+	const about = Vue.extend({
+		template: "<span>About</span>"
+	})
+	const work = Vue.extend({
+		template: "<span>Work</span>"
+	})
+	const blog = Vue.extend({
+		template: "<span>Blog</span>"
+	})
+
+	const routes = [
+		{
+			path: '/', component: home
+		},
+		{
+			path: '/home',
+			component: home
+		},
+		{
+			path: '/about',
+			component: about
+		},
+		{
+			path: '/work',
+			component: work
+		},
+		{
+			path: '/blog',
+			component: blog
+		}
+	]
+
+	const router = new VueRouter({
+		routes
+	})
+
+	const app = new Vue({
+		router
+	}).$mount('#vue-wrapper')
+
+</script>
 </body>
 </html>
