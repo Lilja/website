@@ -54,13 +54,17 @@
 	</header>
 
   <!-- Primary Page Layout -->
-  <main role="main" class="container">
-		<div class="row">
-			<div class="column">
-				<router-view></router-view>
+  <main role="main">
+		<div class="container">
+			<div class="row">
+				<div class="column" role="title">
+					<h1>{{title}}</h1>
+					<h3>{{subtitle}}</h3>
+				</div>
 			</div>
 		</div>
   </main>
+	<router-view role="content"></router-view>
 
 	<!-- Begin footer -->
 	<footer role="footer">
@@ -88,7 +92,7 @@
 			<div class="row">
 				<div class="column">
 					<!-- TODO: Fix shitty script-->
-					<p class="metainfo"><script>document.write("Copyright " +new Date().getUTCFullYear());</script> - Erik Lilja | <a href="#">Website info</a></p>
+					<!-- <p class="metainfo"><script>document.write("Copyright " +new Date().getUTCFullYear());</script> - Erik Lilja | <a href="#">Website info</a></p> -->
 				</div>
 			</div>
 
@@ -99,53 +103,6 @@
 </div> <!-- end vue wrapper -->
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<script>
-
-	Vue.use(VueRouter)
-
-	const home = Vue.extend({
-		template: "<span>Home</span>"
-	})
-	const about = Vue.extend({
-		template: "<span>About</span>"
-	})
-	const work = Vue.extend({
-		template: "<span>Work</span>"
-	})
-	const blog = Vue.extend({
-		template: "<span>Blog</span>"
-	})
-
-	const routes = [
-		{
-			path: '/', component: home
-		},
-		{
-			path: '/home',
-			component: home
-		},
-		{
-			path: '/about',
-			component: about
-		},
-		{
-			path: '/work',
-			component: work
-		},
-		{
-			path: '/blog',
-			component: blog
-		}
-	]
-
-	const router = new VueRouter({
-		routes
-	})
-
-	const app = new Vue({
-		router
-	}).$mount('#vue-wrapper')
-
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>

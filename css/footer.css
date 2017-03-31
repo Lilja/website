@@ -1,0 +1,19 @@
+/* Footer */
+footer[role=footer] {
+	width: 100%;
+	background-color: rgb(242,242,242);
+}
+
+footer[role=footer] ul.footer-navigation > li {
+	text-align: center;
+}
+
+footer[role=footer] ul.footer-navigation {
+	margin: 0;
+}
+
+footer[role=footer] p.metainfo {
+	text-align: center;
+	font-size: 0.70em;
+	margin: 0;
+}
