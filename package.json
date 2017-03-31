@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Erik Lilja's Portfolio",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js",
+    "start": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilja/website.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lilja/website/issues"
+  },
+  "homepage": "https://github.com/lilja/website#readme",
+  "dependencies": {
+    "express": "4.15.2",
+    "webpack": "^2.3.2"
+  }
+}
